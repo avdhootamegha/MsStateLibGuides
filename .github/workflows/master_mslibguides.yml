@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+#  More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy WAR app to Azure Web App - msstatelibguides
+name: Build and deploy WAR app to Azure Web App - mslibguides
 
 on:
   push:
@@ -30,7 +30,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'msstatelibguides'
+        app-name: 'mslibguides'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bfc1bba8da5b4af2aced688816cca610 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ebd9dde27b794b3090e5fed98bbccd74 }}
         package: ./published/
