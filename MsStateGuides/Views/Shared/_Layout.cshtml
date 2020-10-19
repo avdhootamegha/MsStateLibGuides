@@ -4,30 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body class="body-auth">
+
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div>
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div><img name="2015headerlogomsstate" src="https://libapps.s3.amazonaws.com/accounts/15618/images/2019-header-logo.png" id="2015headerlogomsstate" usemap="#2015headerlogomsstate" alt="Mississippi State University Libraries"></div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+
+
+            @*<div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>*@
         </div>
-    </div>
-    <div class="container body-content">
+    </div><div>
+    <hr />
+    <hr />        <hr />
+    <hr />
+    <hr />
+
+</div>
+    <div class="main-body">
         @RenderBody()
         <hr />
         <footer>
@@ -37,6 +42,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-3.4.1.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/datatables2.min.js")"></script>
+
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

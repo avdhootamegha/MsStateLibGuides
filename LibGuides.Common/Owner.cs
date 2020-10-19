@@ -17,6 +17,14 @@ namespace LibGuides.Common
         [JsonProperty("last_name")] 
         public string LastName { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                return this.FirstName +" "+ this.LastName;
+            }
+
+        }
         public string Email { get; set; }
         public string Title { get; set; }
         public string Nickname { get; set; }

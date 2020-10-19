@@ -12,29 +12,29 @@ namespace LibGuids.Client
         string url="";
         public LibGuidsClient(string apiUrl)
         {
-            url = apiUrl + "?site_id=8488&key=0b8da796b00334ae3471f60e6a10e8c6&sort_by=count_hit&expand=owner"; ;
+            url = apiUrl; ;
         }
        
-        //url = url 
-        /// <summary>
-        /// For getting the resources from a web api
-        /// </summary>
-        /// <param name="url">API Url</param>
-        /// <returns>A Task with result object of type T</returns>
-        public async Task<LibGuidesApiResponse> Get()
+        public async Task<HttpResponseMessage> GetLibGuides()
         {
-            LibGuidesApiResponse apiResponse = new LibGuidesApiResponse();
+            HttpResponseMessage response = null;
             using (var httpClient = new HttpClient())
             {
-                var response = httpClient.GetAsync(new Uri(url)).Result;
+                response = await httpClient.GetAsync(new Uri(url));
+
+                if (response == null)
+                {
+                    throw new ArgumentNullException("response is null");
+                }
+                if (response.Content == null)
+                {
+                    throw new ArgumentNullException("response.Content is null");
+                }
 
                 response.EnsureSuccessStatusCode();
-                apiResponse.StatusCode = response.StatusCode;
-                apiResponse.Result = await response.Content.ReadAsAsync<List<LibGuide>>();
-                //result = await response.Content.ReadAsAsync<LibGuidesApiResponse>();
             }
 
-            return apiResponse;
+            return response;
         }
     }
 

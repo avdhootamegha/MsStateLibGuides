@@ -13,7 +13,7 @@ namespace MsStateGuides.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public async System.Threading.Tasks.Task IndexAsync()
+        public async System.Threading.Tasks.Task Index()
         {
             // Arrange
             HomeController controller = new HomeController();

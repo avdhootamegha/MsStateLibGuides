@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LibGuides.Common
 {
-    public class LibGuidesApiResponse
+    public class LibGuidesApiResponse<T>
     {
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace LibGuides.Common
         /// </summary>
         public HttpStatusCode StatusCode;
 
-        public List<LibGuide> Result { get; set; }
+        public List<T> Result { get; set; }
         public LibGuidesApiResponse()
         {
 

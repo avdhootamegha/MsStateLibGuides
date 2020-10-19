@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -19,6 +20,8 @@ namespace LibGuides.Common
         public string Created { get; set; }
         public string Updated { get; set; }
         public string SlugId { get; set; }
+
+        [JsonProperty("friendly_url")]
         public string FriendlyUrl { get; set; }
         public string Nav_type { get; set; }
         public string Count_hit { get; set; }
@@ -27,4 +30,6 @@ namespace LibGuides.Common
         public string Type_label { get; set; }
         public Owner Owner { get; set; }
     }
+
+
 }

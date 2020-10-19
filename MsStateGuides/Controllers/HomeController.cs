@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using System.Configuration;
+using MsStateGuides.Helpers;
+using MsStateGuides.Models;
 
 namespace MsStateGuides.Controllers
 {
@@ -14,9 +16,23 @@ namespace MsStateGuides.Controllers
     {
         public async Task<ActionResult> Index()
         {
-            LibGuidsClient client = new LibGuidsClient(ConfigurationManager.AppSettings["LibGuideApiEndPoint"].ToString());
-            //var response = await client.Get();
-            return View(await client.Get());
+            try
+            {
+                LibGuidesHelper libGuidesHelper = new LibGuidesHelper();
+
+            var model = new LibGuidesModel()
+                {
+                    Filter = new LibGuidesFilter()
+                };
+                model.Subjects = await libGuidesHelper.GetLibGuidesSubjectsAsync(model.Filter);
+                model.LibGuides = await libGuidesHelper.GetLibGuidesAsync(model.Filter);
+
+                return View(model);
+            }
+            catch
+            {
+                return View("Error");
+            }
         }
 
         public ActionResult About()

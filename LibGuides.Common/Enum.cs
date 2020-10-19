@@ -4,8 +4,12 @@ using System.Text;
 
 namespace LibGuides.Common
 {
-    public class LibGuidesApiRequest
+    public class Enum
     {
-        public int MyProperty { get; set; }
+        public enum LibType
+        {
+            guides,
+            subjects
+        }
     }
 }
