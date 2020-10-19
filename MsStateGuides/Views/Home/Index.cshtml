@@ -24,9 +24,41 @@
             {
             <tr>
                 <td>
-                    <a   title=@item.Description id=@item.Id onclick="">@item.Name</a>
-                    
-                    @*<span class="text-left">@item.Name</span>*@
+                    <a   title=@item.Description data-toggle="modal" data-target=@("#model"+item.Id)>@item.Name</a>
+                    <div class="modal" id="@("model"+item.Id)" >
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">@item.Name</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    @item.Description
+
+                                        <span style="text-align:left">
+                                            <a href="@item.FriendlyUrl" class="tooltiped" target="_blank" data-toggle="tooltip" data-placement="top" title="View Details">
+                                                Read More...
+                                            </a>
+                                        </span>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                
+                                    
+                                    <span style="text-align:right">
+                                        By:<a href="https://guides.library.msstate.edu/prf.php?account_id=@item.Owner_id" target="_blank"> <span class="text-left">@item.Owner.FullName</span></a>
+                                    </span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </td>
                 <td class="text-left">@item.Type_label</td>
 
